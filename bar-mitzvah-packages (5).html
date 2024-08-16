@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ד"ר בר מצווה - החבילות שלנו</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Heebo:wght@400;700&display=swap');
+
+        :root {
+            --primary-color: #f5e6d3;
+            --secondary-color: #e6d7c3;
+            --background-color: #fff9f0;
+            --text-color: #4a4a4a;
+            --accent-color: #d4af37;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Heebo', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .logo-container {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .logo {
+            display: inline-block;
+            background-color: var(--primary-color);
+            padding: 1rem;
+            border-radius: 50%;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            height: 300px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .logo-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .logo-text {
+            position: absolute;
+            bottom: 10px;
+            left: 0;
+            right: 0;
+            background-color: rgba(245, 230, 211, 0.8);
+            padding: 5px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--text-color);
+        }
+
+        .logo-stars {
+            position: absolute;
+            bottom: 5px;
+            left: 0;
+            right: 0;
+            color: var(--accent-color);
+            font-size: 1.2rem;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--text-color);
+        }
+
+        .packages {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        .package {
+            background-color: var(--primary-color);
+            border-radius: 10px;
+            padding: 2rem;
+            width: 100%;
+            max-width: 350px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .package:hover {
+            transform: translateY(-5px);
+        }
+
+        .package.featured {
+            border: 2px solid var(--accent-color);
+        }
+
+        .icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1rem;
+        }
+
+        .package h2 {
+            text-align: center;
+            margin-bottom: 1rem;
+            color: var(--text-color);
+        }
+
+        .price {
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+        }
+
+        .package ul {
+            list-style-type: none;
+            margin-bottom: 1rem;
+        }
+
+        .package li {
+            margin-bottom: 0.5rem;
+        }
+
+        .gift {
+            background-color: var(--secondary-color);
+            padding: 1rem;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+
+        .cta-button {
+            display: block;
+            background-color: var(--accent-color);
+            color: var(--background-color);
+            text-align: center;
+            padding: 0.75rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: #c4a130;
+        }
+
+        @media (max-width: 768px) {
+            .packages {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .package {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo-container">
+            <div class="logo">
+                <img src="https://scontent.ftlv6-1.fna.fbcdn.net/v/t39.30808-6/434126223_920943990032967_3292812986588041111_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=OKObf7-s-4wQ7kNvgHIndzt&_nc_ht=scontent.ftlv6-1.fna&oh=00_AYBoJElNI7g2WuyFFizrUoov5O6A3DQIeFZqBAmI_BXOvA&oe=66C557BC" alt="ד״ר בר מצווה" class="logo-image">
+                <div class="logo-text">ד"ר בר מצווה</div>
+                <div class="logo-stars">★ ★ ★</div>
+            </div>
+        </div>
+
+        <h1>החבילות שלנו</h1>
+
+        <div class="packages">
+            <div class="package">
+                <div class="icon" id="icon-classic"></div>
+                <h2>חבילת קלאסיק</h2>
+                <div class="price">1900 ₪</div>
+                <ul>
+                    <li>2 גנים + קישוטים</li>
+                    <li>תעודת בר מצווה מהודרת</li>
+                    <li>טקס קבלת עול מצוות מכובד</li>
+                    <li>כניסה מרשימה לאולם לכלת השמחה</li>
+                    <li>מסיבת סיום לכל באי האולם</li>
+                </ul>
+                <div class="gift">
+                    מתנה מיוחדת: המדריך לארגון בר מצווה בכותל בכוחות עצמכם
+                </div>
+                <a href="#" class="cta-button">קנה עכשיו</a>
+            </div>
+
+            <div class="package featured">
+                <div class="icon" id="icon-premium"></div>
+                <h2>חבילת פרימיום</h2>
+                <div class="price">19500 ₪</div>
+                <ul>
+                    <li>כל מה שכלול בחבילת אקסקלוסיב</li>
+                    <li>פגישה אישית עם השף ובניית תפריט מותאם</li>
+                    <li>איפור מקצועי לחוגגים נוספים (עד 5)</li>
+                    <li>עיצוב בלונים בסטנדרט גבוה</li>
+                    <li>במה ייחודית ותאורה מתקדמת</li>
+                    <li>צילום מגנטים לכל האורחים</li>
+                    <li>DJ לאירוע כולו</li>
+                    <li>אירוח מלא למבוגרים וילדים</li>
+                    <li>מזכרות מותאמות אישית לכל אורח</li>
+                    <li>אזור VIP להורים ולאורחים מרכזיים</li>
+                </ul>
+                <div class="gift">
+                    מתנה מיוחדת: מצגת להקרנה במסעדה על חתן בר המצווה ומשפחתו
+                </div>
+                <a href="#" class="cta-button">קנה עכשיו</a>
+            </div>
+
+            <div class="package">
+                <div class="icon" id="icon-exclusive"></div>
+                <h2>חבילת אקסקלוסיב</h2>
+                <div class="price">10500 ₪</div>
+                <ul>
+                    <li>כל מה שכלול בחבילת קלאסיק</li>
+                    <li>ליווי אישי לאורך כל האירוע</li>
+                    <li>עיצוב מיתוג ייחודי לאירוע</li>
+                    <li>איפור מקצועי לאם ולחוגגת</li>
+                    <li>איפור לחוגגים נוספים (עד 3)</li>
+                    <li>בוק תמונות אומנותי</li>
+                    <li>צלם ווידאו יוקרתי</li>
+                    <li>מתנות אישיות לכל האורחים</li>
+                    <li>קליפ ייחודי בסוף האירוע</li>
+                    <li>טקס סיום מיוחד</li>
+                </ul>
+                <div class="gift">
+                    מתנה מיוחדת: סידור תפילה מיוחד
+                </div>
+                <a href="#" class="cta-button">קנה עכשיו</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function createStar(scene) {
+            const starShape = new THREE.Shape();
+            const numPoints = 5;
+            const outerRadius = 5;
+            const innerRadius = 2;
+
+            for (let i = 0; i < numPoints * 2; i++) {
+                const radius = i % 2 === 0 ? outerRadius : innerRadius;
+                const angle = (i / numPoints) * Math.PI;
+                const x = Math.cos(angle) * radius;
+                const y = Math.sin(angle) * radius;
+                if (i === 0) {
+                    starShape.moveTo(x, y);
+                } else {
+                    starShape.lineTo(x, y);
+                }
+            }
+
+            const geometry = new THREE.ExtrudeGeometry(starShape, {
+                depth: 1,
+                bevelEnabled: false
+            });
+            const material = new THREE.MeshBasicMaterial({ color: 0xd4af37, wireframe: true });
+            return new THREE.Mesh(geometry, material);
+        }
+
+        function createDiamond(scene) {
+            const diamondShape = new THREE.Shape();
+            diamondShape.moveTo(0, 5);
+            diamondShape.lineTo(5, 0);
+            diamondShape.lineTo(0, -5);
+            diamondShape.lineTo(-5, 0);
+            diamondShape.lineTo(0, 5);
+
+            const extrudeSettings = {
+                steps: 2,
+                depth: 2,
+                bevelEnabled: true,
+                bevelThickness: 1,
+                bevelSize: 1,
+                bevelSegments: 1
+            };
+
+            const geometry = new THREE.ExtrudeGeometry(diamondShape, extrudeSettings);
+            const material = new THREE.MeshBasicMaterial({ color: 0xd4af37, wireframe: true });
+            return new THREE.Mesh(geometry, material);
+        }
+
+        function createCrown(scene) {
+            const crownGroup = new THREE.Group();
+
+            // Base ring
+            const ringGeometry = new THREE.TorusGeometry(4, 0.5, 16, 100);
+            const ringMaterial = new THREE.MeshBasicMaterial({ color: 0xd4af37, wireframe: true });
+            const ring = new THREE.Mesh(ringGeometry, ringMaterial);
+            crownGroup.add(ring);
+
+            // Spikes
+            const spikeGeometry = new THREE.ConeGeometry(0.5, 2, 32);
+            const spikeMaterial = new THREE.MeshBasicMaterial({ color: 0xd4af37, wireframe: true });
+
+            for (let i = 0; i < 5; i++) {
+                const spike = new THREE.Mesh(spikeGeometry, spikeMaterial);
+                spike.position.y = 2;
+                spike.rotation.z = Math.PI;
+                spike.rotation.y = (i / 5) * Math.PI * 2;
+                spike.position.x = Math.cos((i / 5) * Math.PI * 2) * 4;
+                spike.position.z = Math.sin((i / 5) * Math.PI * 2) * 4;
+                crownGroup.add(spike);
+            }
+
+            return crownGroup;
+        }
+
+        function createIcon(elementId, objectCreator) {
+            const scene = new THREE.Scene();
+            const camera = new THREE.PerspectiveCamera(75, 1, 0.1, 1000);
+            const renderer = new THREE.WebGLRenderer({ alpha: true });
+            renderer.setSize(80, 80);
+
+            const element = document.getElementById(elementId);
+            element.appendChild(renderer.domElement);
+
+            const object = objectCreator(scene);
+            scene.add(object);
+
+            camera.position.z = 10;
+
+            function animate() {
+                requestAnimationFrame(animate);
+                object.rotation.x += 0.01;
+                object.rotation.y += 0.01;
+                renderer.render(scene, camera);
+            }
+            animate();
+        }
+
+        createIcon('icon-classic', createStar);
+        createIcon('icon-premium', createCrown);
+        createIcon('icon-exclusive', createDiamond);
+    </script>
+</body>
+</html>
